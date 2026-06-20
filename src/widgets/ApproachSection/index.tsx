@@ -14,44 +14,30 @@ export interface ApproachSectionData {
 
 export interface ApproachSectionProps {
     data?: ApproachSectionData;
+    heading?: string;
+    title?: string;
+    intro_text?: string;
+    link_text?: string;
+    link_url?: string;
+    clients?: any[];
 }
 
-// Helper for Strapi media
+// Helper for media URL
 const getMediaUrl = (media: any) => {
     if (!media) return '';
     if (typeof media === 'string') return media;
-    if (media.data?.attributes?.url) {
-        const url = media.data.attributes.url;
-        return url.startsWith('http') ? url : `http://localhost:1337${url}`;
-    }
-    if (media.url) {
-        return media.url.startsWith('http') ? media.url : `http://localhost:1337${media.url}`;
-    }
+    if (media.url) return media.url;
     return '';
 };
 
-export default function ApproachSection({ data }: ApproachSectionProps) {
-    const title = data?.title || "Approach";
-    const introText = data?.intro_text || "Work that works. Clear, collaborative, and crafted with care.";
-    const linkText = data?.link?.text || "Our approach";
-    const linkUrl = data?.link?.url || "/approach";
-    const clients = data?.clients || [];
+export default function ApproachSection({ data, heading, title: directTitle, intro_text, link_text, link_url, clients: directClients }: ApproachSectionProps) {
+    const title = heading || directTitle || data?.title;
+    const introText = intro_text || data?.intro_text;
+    const linkText = link_text || data?.link?.text;
+    const linkUrl = link_url || data?.link?.url;
+    const clients = directClients || data?.clients || [];
 
-    // Fallback constant for static usage
-    const displayClients = clients.length > 0 ? clients : [
-        { name: "Norton", style: "font-serif italic text-2xl md:text-3xl font-medium tracking-tight" },
-        { name: "M", style: "font-serif italic text-4xl md:text-5xl font-light" },
-        { name: "RCA", style: "font-black text-3xl md:text-4xl tracking-tighter uppercase" },
-        { name: "Emirates", style: "font-serif text-xl md:text-2xl font-medium" },
-        { name: "EE", style: "font-bold text-2xl md:text-3xl bg-white text-[#1a1a1a] rounded-full w-12 h-12 flex items-center justify-center" },
-        { name: "TEAM sky", style: "font-bold text-lg md:text-xl tracking-tight" },
-        { name: "GOV.UK", style: "font-bold text-xl md:text-2xl tracking-tight" },
-        { name: "NYETIMBER", style: "font-medium text-sm md:text-base tracking-[0.2em] uppercase" },
-        { name: "M&CSAATCHI", style: "font-black text-xl md:text-2xl tracking-tighter uppercase" },
-        { name: "apollo", style: "font-bold text-2xl md:text-3xl italic tracking-tight lowercase" },
-        { name: "LAND ROVER", style: "font-bold text-sm md:text-base tracking-widest uppercase border border-white/30 rounded-full px-4 py-2" },
-        { name: "Panasonic", style: "font-bold text-xl md:text-2xl tracking-tighter" },
-    ];
+    if (!clients || clients.length === 0) return null;
 
     return (
         <section className="w-full py-16 md:py-24 border-t border-zinc-200">
@@ -85,7 +71,7 @@ export default function ApproachSection({ data }: ApproachSectionProps) {
 
                 {/* Clients Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-3">
-                    {displayClients.map((client: any, index: number) => {
+                    {clients.map((client: any, index: number) => {
                         const imageUrl = getMediaUrl(client.image);
                         
                         return (

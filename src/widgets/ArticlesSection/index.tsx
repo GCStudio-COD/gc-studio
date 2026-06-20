@@ -13,19 +13,18 @@ export interface ArticlesSectionData {
 
 export interface ArticlesSectionProps {
     data?: ArticlesSectionData;
+    heading?: string;
+    title?: string;
+    link_text?: string;
+    link_url?: string;
+    articles?: any[];
 }
 
-// Helper for Strapi media
+// Helper for media URL
 const getMediaUrl = (media: any) => {
     if (!media) return '';
     if (typeof media === 'string') return media;
-    if (media.data?.attributes?.url) {
-        const url = media.data.attributes.url;
-        return url.startsWith('http') ? url : `http://localhost:1337${url}`;
-    }
-    if (media.url) {
-        return media.url.startsWith('http') ? media.url : `http://localhost:1337${media.url}`;
-    }
+    if (media.url) return media.url;
     return '';
 };
 
@@ -34,8 +33,6 @@ const getCategoryName = (category: any) => {
     if (!category) return "ARTICLE";
     if (typeof category === 'string') return category;
     if (category.name) return category.name;
-    if (category.attributes?.name) return category.attributes.name;
-    if (category.data?.attributes?.name) return category.data.attributes.name;
     return "ARTICLE";
 };
 
@@ -49,48 +46,13 @@ const BG_COLORS = [
     "bg-[#ff6b4a]"  // Orange
 ];
 
-export default function ArticlesSection({ data }: ArticlesSectionProps) {
-    const title = data?.title || "Articles";
-    const sectionLinkText = data?.link?.text || "View all articles";
-    const sectionLinkUrl = data?.link?.url || "/articles";
-    const articles = data?.articles || [];
+export default function ArticlesSection({ data, heading, title: directTitle, link_text, link_url, articles: directArticles }: ArticlesSectionProps) {
+    const title = heading || directTitle || data?.title;
+    const sectionLinkText = link_text || data?.link?.text;
+    const sectionLinkUrl = link_url || data?.link?.url;
+    const articles = directArticles || data?.articles || [];
 
-    // Fallback constant for static usage
-    const displayArticles = articles.length > 0 ? articles : [
-        {
-            tag: "ARTICLE",
-            title: "Using AI in design",
-            excerpt: "When and how to integrate AI into design projects",
-            link: { text: "READ THE ARTICLE", url: "#" },
-            bgClass: "bg-[#c198a9]",
-            visual: (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" className="w-[50%] h-[50%]">
-                    <path d="M9 11V8a2 2 0 0 1 4 0v4" />
-                    <path d="M13 11V6a2 2 0 0 1 4 0v5" />
-                    <path d="M17 11V9a2 2 0 0 1 4 0v7a8 8 0 0 1-16 0v-3a2 2 0 0 1 4 0v2" />
-                    <path d="M13 2v2M9 4l1 2M17 4l-1 2" />
-                </svg>
-            )
-        },
-        {
-            tag: "COMING SOON",
-            title: "RCA featured in Design Week",
-            excerpt: "Our new work for RCA Records has been featured on the recently re-released Design Week",
-            link: { text: "READ THE ARTICLE", url: "#" },
-            bgClass: "bg-[#dbff00]",
-            visual: (
-                <div className="w-[85%] h-[120%] bg-[#111] rounded-[40px] transform rotate-[20deg] translate-y-16 flex flex-col items-start justify-start pt-12 px-6 shadow-2xl">
-                     <h3 className="text-[#f0f0f0] font-black text-[32px] uppercase tracking-tighter leading-[0.85] transform -rotate-[8deg]">
-                        ARTISTS<br/>ABOUT<br/>JOBS
-                     </h3>
-                     <div className="flex flex-wrap gap-1.5 mt-6 transform -rotate-[8deg]">
-                         <span className="text-[#dbff00] border border-[#dbff00]/60 rounded-md px-1.5 py-0.5 text-[8px] font-bold">X</span>
-                         <span className="text-[#dbff00] border border-[#dbff00]/60 rounded-md px-1.5 py-0.5 text-[8px] font-bold">TIKTOK</span>
-                     </div>
-                </div>
-            )
-        }
-    ];
+    if (!articles || articles.length === 0) return null;
 
     return (
         <section className="w-full py-16 md:py-24 border-t border-zinc-200">
@@ -104,7 +66,7 @@ export default function ArticlesSection({ data }: ArticlesSectionProps) {
                     
                     {data?.link && (
                         <Link
-                            href={sectionLinkUrl}
+                            href={sectionLinkUrl || "#"}
                             className="inline-flex px-4 py-1.5 bg-[#f0f0f0] hover:bg-[#e5e5e5] text-zinc-800 text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-full transition-colors"
                         >
                             {sectionLinkText}
@@ -114,7 +76,7 @@ export default function ArticlesSection({ data }: ArticlesSectionProps) {
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-4 lg:gap-6">
-                    {displayArticles.map((article: any, index: number) => {
+                    {articles.map((article: any, index: number) => {
                         // Determine if it's dynamic data from Strapi or fallback mock data
                         const isDynamic = !!article.id; 
                         

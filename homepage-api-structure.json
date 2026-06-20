@@ -1,0 +1,56 @@
+{
+  "data": {
+    "seo": {
+      "metaTitle": "Example Homepage Title",
+      "metaDescription": "This is an example description for the homepage SEO.",
+      "metaImage": {
+        "url": {
+          "url": "https://example.com/images/home-og.jpg"
+        }
+      }
+    },
+    "widgets": [
+      {
+        "widget_type": "HomeBanner",
+        "title": "Welcome to GC Studio",
+        "subtitle": "We build amazing digital experiences"
+      },
+      {
+        "widget_type": "FeaturedProjects",
+        "heading": "Our Work",
+        "projects": [
+          {
+            "id": 1,
+            "title": "Project Alpha",
+            "image": "https://example.com/images/project1.jpg"
+          }
+        ]
+      },
+      {
+        "widget_type": "ServicesSection",
+        "heading": "What We Do",
+        "services": [
+          {
+            "title": "Web Development",
+            "description": "High performance web applications."
+          }
+        ]
+      },
+      {
+        "widget_type": "ApproachSection",
+        "heading": "Our Approach",
+        "description": "We follow a user-centered design approach."
+      },
+      {
+        "widget_type": "ArticlesSection",
+        "heading": "Latest Insights",
+        "articles": [
+          {
+            "id": 1,
+            "title": "The Future of Web Design"
+          }
+        ]
+      }
+    ]
+  }
+}

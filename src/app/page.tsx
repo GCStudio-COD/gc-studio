@@ -6,10 +6,13 @@ import ArticlesSection from "@/widgets/ArticlesSection";
 
 import WidgetBlocks from "../utilities/WidgetBlock";
 import nextFetch from "../utilities/nextFetch";
+import { log } from "console";
 
 
 export async function generateMetadata({ params }: { params: any }) {
   const data = await nextFetch(`api/general/home`);
+  console.log(data?.data, "aa");
+
   return {
     title: data?.data?.seo?.metaTitle,
     description: data?.data?.seo?.metaDescription,

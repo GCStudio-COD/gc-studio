@@ -13,19 +13,19 @@ export interface FeaturedProjectsData {
 
 export interface FeaturedProjectsProps {
     data?: FeaturedProjectsData;
+    heading?: string;
+    title?: string;
+    link_text?: string;
+    link_url?: string;
+    projects?: any[];
+    featured_projects?: any[];
 }
 
-// Helper for Strapi media
+// Helper for media URL
 const getMediaUrl = (media: any) => {
     if (!media) return '';
     if (typeof media === 'string') return media;
-    if (media.data?.attributes?.url) {
-        const url = media.data.attributes.url;
-        return url.startsWith('http') ? url : `http://localhost:1337${url}`;
-    }
-    if (media.url) {
-        return media.url.startsWith('http') ? media.url : `http://localhost:1337${media.url}`;
-    }
+    if (media.url) return media.url;
     return '';
 };
 
@@ -33,45 +33,22 @@ const getMediaUrl = (media: any) => {
 const getCategoryNames = (categories: any) => {
     if (!categories) return [];
     if (Array.isArray(categories)) {
-        return categories.map(cat => {
+        return categories.map((cat: any) => {
             if (typeof cat === 'string') return cat;
             if (cat.name) return cat.name;
-            if (cat.attributes?.name) return cat.attributes.name;
             return '';
         }).filter(Boolean);
-    }
-    // Strapi v4 data array wrapper
-    if (categories.data && Array.isArray(categories.data)) {
-        return categories.data.map((cat: any) => cat.attributes?.name || '').filter(Boolean);
     }
     return [];
 };
 
-export default function FeaturedProjects({ data }: FeaturedProjectsProps) {
-    // If no data is provided (e.g. static usage on page.tsx), we fallback to empty gracefully
-    const title = data?.title || "Featured projects";
-    const linkText = data?.link?.text || "View all";
-    const linkUrl = data?.link?.url || "/projects";
-    const projects = data?.featured_projects || [];
+export default function FeaturedProjects({ data, heading, title: directTitle, link_text, link_url, projects: directProjects, featured_projects }: FeaturedProjectsProps) {
+    const title = heading || directTitle || data?.title;
+    const linkText = link_text || data?.link?.text;
+    const linkUrl = link_url || data?.link?.url;
+    const projects = directProjects || featured_projects || data?.featured_projects || [];
 
-    // Fallback constant for testing if no projects provided
-    const displayProjects = projects.length > 0 ? projects : [
-        {
-            id: 1,
-            title: "Sprint Valley",
-            categories: ["Marketing & advertising", "Brand"],
-            isNew: true,
-            bgType: "abstract",
-        },
-        {
-            id: 2,
-            title: "NoteWorthy",
-            categories: ["Travel & tourism", "Website"],
-            isNew: true,
-            bgType: "image",
-            image: "https://images.unsplash.com/photo-1513635269975-5969336cd190?q=80&w=1000",
-        }
-    ];
+    if (!projects || projects.length === 0) return null;
 
     return (
         <section className="w-full py-16 md:py-24">
@@ -93,7 +70,7 @@ export default function FeaturedProjects({ data }: FeaturedProjectsProps) {
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    {displayProjects.map((project: any, i: number) => {
+                    {projects.map((project: any, i: number) => {
                         const bgType = project.bgType || "image";
                         const imageUrl = getMediaUrl(project.image);
                         const catNames = getCategoryNames(project.categories);

@@ -16,23 +16,23 @@ export interface ServicesSectionData {
 
 export interface ServicesSectionProps {
     data?: ServicesSectionData;
+    heading?: string;
+    title?: string;
+    intro_text?: string;
+    link_text?: string;
+    link_url?: string;
+    services?: any[];
 }
 
-// Helper for Strapi media
+// Helper for media URL
 const getMediaUrl = (media: any) => {
     if (!media) return '';
     if (typeof media === 'string') return media;
-    if (media.data?.attributes?.url) {
-        const url = media.data.attributes.url;
-        return url.startsWith('http') ? url : `http://localhost:1337${url}`;
-    }
-    if (media.url) {
-        return media.url.startsWith('http') ? media.url : `http://localhost:1337${media.url}`;
-    }
+    if (media.url) return media.url;
     return '';
 };
 
-export default function ServicesSection({ data }: ServicesSectionProps) {
+export default function ServicesSection({ data, heading, title: directTitle, intro_text, link_text, link_url, services: directServices }: ServicesSectionProps) {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -40,27 +40,13 @@ export default function ServicesSection({ data }: ServicesSectionProps) {
         setMousePos({ x: e.clientX, y: e.clientY });
     };
 
-    const title = data?.title || "Services";
-    const introText = data?.intro_text || "From first idea to final build, we design with clarity and craft at every stage.";
-    const linkText = data?.link?.text || "See all services";
-    const linkUrl = data?.link?.url || "/services";
-    const services = data?.services || [];
+    const title = heading || directTitle || data?.title;
+    const introText = intro_text || data?.intro_text;
+    const linkText = link_text || data?.link?.text;
+    const linkUrl = link_url || data?.link?.url;
+    const services = directServices || data?.services || [];
 
-    // Fallback constant for testing if no services provided
-    const displayServices = services.length > 0 ? services : [
-        {
-            name: "Brand",
-            image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000"
-        },
-        {
-            name: "Digital",
-            image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000"
-        },
-        {
-            name: "Expression",
-            image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000"
-        }
-    ];
+    if (!services || services.length === 0) return null;
 
     return (
         <section className="w-full py-16 md:py-24 overflow-hidden border-t border-zinc-200">
@@ -91,7 +77,7 @@ export default function ServicesSection({ data }: ServicesSectionProps) {
                             onMouseLeave={() => setHoveredIndex(null)}
                         >
                             <div className="flex flex-col">
-                                {displayServices.map((service: any, index: number) => (
+                                {services.map((service: any, index: number) => (
                                     <div
                                         key={index}
                                         className="py-5 md:py-7 border-b border-zinc-200 flex items-center group cursor-pointer"
@@ -113,7 +99,7 @@ export default function ServicesSection({ data }: ServicesSectionProps) {
                                 }}
                             >
                                 <div className="w-full h-full relative overflow-hidden shadow-2xl">
-                                    {displayServices.map((srv: any, idx: number) => {
+                                    {services.map((srv: any, idx: number) => {
                                         const imageUrl = getMediaUrl(srv.image);
                                         return (
                                             <div
