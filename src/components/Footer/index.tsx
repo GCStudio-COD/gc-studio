@@ -44,7 +44,7 @@ export default function Footer({ data }: FooterProps) {
     ];
 
     return (
-        <footer className="fixed bottom-0 left-0 w-full h-[80vh] md:h-[70vh] z-[-1] bg-[#1a1a1a] text-white flex flex-col justify-end pb-8">
+        <footer className="fixed bottom-0 left-0 w-full h-[80vh] md:h-[70vh] z-0 bg-[#1a1a1a] text-white flex flex-col justify-end pb-8">
             <div className="container mx-auto px-4 md:px-8 h-full flex flex-col justify-between pt-16 md:pt-24 relative">
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center h-full pb-16 md:pb-8">

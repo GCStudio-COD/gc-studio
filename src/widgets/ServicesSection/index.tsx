@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export interface ServicesSectionData {
     title: string;
-    intro_text: string;
+    description: string;
     link?: {
         text: string;
         url: string;
@@ -18,7 +18,7 @@ export interface ServicesSectionProps {
     data?: ServicesSectionData;
     heading?: string;
     title?: string;
-    intro_text?: string;
+    description?: string;
     link_text?: string;
     link_url?: string;
     services?: any[];
@@ -32,7 +32,7 @@ const getMediaUrl = (media: any) => {
     return '';
 };
 
-export default function ServicesSection({ data, heading, title: directTitle, intro_text, link_text, link_url, services: directServices }: ServicesSectionProps) {
+export default function ServicesSection({ data, heading, title: directTitle, description, link_text, link_url, services: directServices }: ServicesSectionProps) {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -41,10 +41,13 @@ export default function ServicesSection({ data, heading, title: directTitle, int
     };
 
     const title = heading || directTitle || data?.title;
-    const introText = intro_text || data?.intro_text;
+    const introText = description || data?.description;
     const linkText = link_text || data?.link?.text;
     const linkUrl = link_url || data?.link?.url;
     const services = directServices || data?.services || [];
+
+    console.log(data, "aa");
+
 
     if (!services || services.length === 0) return null;
 
@@ -84,7 +87,7 @@ export default function ServicesSection({ data, heading, title: directTitle, int
                                         onMouseEnter={() => setHoveredIndex(index)}
                                     >
                                         <h3 className={`text-3xl md:text-[40px] font-[300] tracking-tight transition-all duration-300 ease-out group-hover:translate-x-3 ${hoveredIndex === index ? 'text-black font-medium' : 'text-[#222]'}`}>
-                                            {service.name}
+                                            {service.title}
                                         </h3>
                                     </div>
                                 ))}

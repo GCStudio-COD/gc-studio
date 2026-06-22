@@ -14,7 +14,8 @@ export default function Header() {
     const logoImageUrl = "";
     const zones = [
         { name: "New Zealand", tz: "Pacific/Auckland", prefix: "NZST" },
-        { name: "India", tz: "Asia/Kolkata", prefix: "IST" }
+        { name: "India", tz: "Asia/Kolkata", prefix: "IST" },
+        { name: "United Kingdom", tz: "Europe/London", prefix: "UK" }
     ];
 
     useEffect(() => {
@@ -53,12 +54,12 @@ export default function Header() {
     };
 
     return (
-        <header className="w-full h-20 md:h-20 absolute top-0 left-0 z-50">
+        <header className="w-full h-20 md:h-20 absolute top-0 left-0 z-50 mix-blend-difference text-white">
             {/* Container wrapper */}
             <div className="container mx-auto h-full relative z-10">
                 <div className="flex items-center justify-between h-full">
                     {/* Left side: Logo */}
-                    <div className="flex items-center text-black">
+                    <div className="flex items-center">
                         <Link href="/">
                             <svg
                                 width="72"
@@ -91,16 +92,16 @@ export default function Header() {
                             {zones.map((zone, idx) => (
                                 <div
                                     key={`${zone.name}-${idx}`}
-                                    className={`absolute right-0 flex items-center gap-3 md:gap-4 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${zoneIndex === idx
-                                        ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
-                                        : "opacity-0 translate-y-2 scale-[0.95] pointer-events-none"
+                                    className={`absolute right-0 flex items-center gap-3 md:gap-4 transition-opacity duration-700 ease-in-out ${zoneIndex === idx
+                                        ? "opacity-100 pointer-events-auto"
+                                        : "opacity-0 pointer-events-none"
                                         }`}
                                 >
-                                    <span className="text-[9px] md:text-[11px] font-bold tracking-[0.15em] md:tracking-[0.2em] text-[#111] uppercase whitespace-nowrap">
+                                    <span className="text-[9px] md:text-[11px] font-normal tracking-[0.15em] md:tracking-[0.2em] uppercase whitespace-nowrap">
                                         {zone.name}
                                     </span>
                                     <span className="w-1.5 h-1.5 rounded-full bg-teal-600"></span>
-                                    <span className="text-[9px] md:text-[11px] font-bold tracking-[0.15em] md:tracking-[0.2em] text-[#111] uppercase whitespace-nowrap">
+                                    <span className="text-[9px] md:text-[11px] font-normal tracking-[0.15em] md:tracking-[0.2em] uppercase whitespace-nowrap">
                                         {formatTime(zone.tz, zone.prefix)}
                                     </span>
                                 </div>

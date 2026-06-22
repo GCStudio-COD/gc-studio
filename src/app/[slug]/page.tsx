@@ -1,11 +1,10 @@
-
-
-import WidgetBlocks from "../utilities/WidgetBlock";
-import nextFetch from "../utilities/nextFetch";
-
+import WidgetBlocks from "@/utilities/WidgetBlock";
+import nextFetch from "@/utilities/nextFetch";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: { params: any }) {
-  const data = await nextFetch(`api/general/home`);
+  const resolvedParams = await params;
+  const data = await nextFetch(`api/general/${resolvedParams.slug}`);
 
   return {
     title: data?.data?.seo?.metaTitle,
@@ -20,18 +19,15 @@ export async function generateMetadata({ params }: { params: any }) {
   };
 }
 
-
-export default async function Home() {
-  const data = await nextFetch("api/general/home");
-
+export default async function SlugPage({ params }: { params: any }) {
+  const resolvedParams = await params;
+  const data = await nextFetch(`api/general/${resolvedParams.slug}`);
 
   return (
     <>
-
       {data && (
         <WidgetBlocks widgets={data?.data?.widgets}></WidgetBlocks>
       )}
     </>
-
   );
 }

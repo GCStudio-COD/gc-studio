@@ -1,0 +1,264 @@
+{
+  "data": {
+    "seo": {
+      "metaTitle": "gc brand",
+      "metaDescription": "",
+      "metaImage": {
+        "url": {
+          "url": ""
+        }
+      }
+    },
+    "widgets": [
+      {
+        "widget_type": "CapabilitiesListSection",
+        "data": {
+          "title": "Capabilities",
+          "items": [
+            "Brand strategy",
+            "Naming",
+            "Tone of voice",
+            "Copywriting",
+            "Brand identity",
+            "UX design",
+            "Prototyping",
+            "Website design",
+            "App design",
+            "Videography",
+            "Design systems",
+            "Website development",
+            "App development",
+            "Ecommerce",
+            "Art direction",
+            "Campaigns",
+            "Social",
+            "Presentation design",
+            "Photography",
+            "Illustration",
+            "Animation & motion design"
+          ]
+        }
+      },
+      {
+        "widget_type": "BenefitsSection",
+        "data": {
+          "title": "Why Our Approach Works",
+          "description": "Highlighting the core benefits of our methodology and how it translates to success.",
+          "benefits": [
+            "Transparent Communication",
+            "On-Time Delivery",
+            "Agile Development",
+            "Scalable Solutions",
+            "Dedicated Support",
+            "Client-Centric Process"
+          ]
+        }
+      },
+      {
+        "widget_type": "ExpertiseSection",
+        "data": {
+          "title": "Our Capabilities",
+          "items": [
+            {
+              "title": "Strategy & Branding",
+              "description": "We help companies define their vision and build powerful brands.",
+              "image": "https://example.com/images/branding.jpg",
+              "tags": [
+                "Brand Identity",
+                "Market Research",
+                "Positioning"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "widget_type": "CaseStudiesSection",
+        "data": {
+          "title": "Selected Work",
+          "subtitle": "Discover how we've helped our clients achieve their goals.",
+          "caseStudies": [
+            {
+              "title": "E-Commerce Platform",
+              "category": "Web Development",
+              "image": "https://example.com/images/case1.jpg",
+              "link": "/work/e-commerce"
+            }
+          ]
+        }
+      },
+      {
+        "widget_type": "TestimonialsSection",
+        "data": {
+          "title": "What Our Clients Say",
+          "description": "Hear from the people we've partnered with to create digital experiences that matter.",
+          "testimonials": [
+            {
+              "quote": "Their attention to detail and design sensibility completely transformed our digital presence. They didn't just build a website, they elevated our entire brand.",
+              "name": "Sarah Jenkins",
+              "role": "Chief Marketing Officer",
+              "company": "Yapily"
+            },
+            {
+              "quote": "A rare mix of strategic thinking and flawless execution. They understood our business goals and translated them into an experience our users love.",
+              "name": "David Chen",
+              "role": "Product Director",
+              "company": "Echo"
+            }
+          ]
+        }
+      },
+      {
+        "widget_type": "ProcessSection",
+        "data": {
+          "title": "Our Process",
+          "description": "A proven methodology that transforms ambitious ideas into exceptional digital experiences.",
+          "processes": [
+            {
+              "title": "Discovery & Consultation",
+              "description": "We dive deep to understand your business requirements, target audience, and core objectives.",
+              "includes": [
+                "Initial meeting",
+                "Business goals analysis",
+                "Competitor research",
+                "Requirement gathering"
+              ]
+            },
+            {
+              "title": "Strategy & Planning",
+              "description": "We create a comprehensive roadmap to guide the project seamlessly before any development begins.",
+              "includes": [
+                "Project scope",
+                "Feature planning",
+                "Timeline creation",
+                "Technology selection",
+                "Budget estimation"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "widget_type": "FAQSection",
+        "data": {
+          "title": "Frequently Asked Questions",
+          "description": "Everything you need to know about our services and process.",
+          "faqs": [
+            {
+              "question": "How long does a typical project take?",
+              "answer": "Most projects take between 4 to 8 weeks depending on complexity."
+            }
+          ]
+        }
+      },
+      {
+        "widget_type": "CTASection",
+        "data": {
+          "title": "Ready to transform your brand?",
+          "buttonText": "Start a Project",
+          "buttonLink": "/contact",
+          "bgImage": "https://example.com/images/cta-bg.jpg"
+        }
+      },
+      {
+        "widget_type": "ContactSection",
+        "data": {
+          "title": "Let's start \n a project.",
+          "description": "We're always looking for new challenges.",
+          "email": "hello@gcstudio.com",
+          "offices": [
+            {
+              "city": "New York",
+              "address": "100 Broadway\nNew York, NY 10005"
+            },
+            {
+              "city": "London",
+              "address": "140 Old Street\nLondon, EC1V 9BW"
+            }
+          ]
+        }
+      },
+      {
+        "widget_type": "ProjectDetailBanner",
+        "data": {
+          "title": "A Revolutionary E-Commerce Experience",
+          "mediaUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2560&auto=format&fit=crop",
+          "mediaType": "image"
+        }
+      },
+      {
+        "widget_type": "ProjectDetailContent",
+        "data": {
+          "headingText1": "How do you take a team from stuck to unstoppable?",
+          "headingText2": "With a visual identity built to carry strategy forward.",
+          "description": [
+            "Sprint Valley is a behavioural science-led consultancy that helps leadership teams turn strategy into momentum. Through facilitation, strategic ownership and low-risk experimentation, they accelerate alignment, build buy-in, and unlock performance. With clients ranging from Nike to McDonald's, they needed a brand identity that could meet the moment: confident, compelling and international in feel.",
+            "We delivered a complete rebrand, from word mark through to application and motion, rooted in a central idea: taking teams from stuck to unstoppable. The design system we created brings this to life through dynamic shapes that twist, rotate and lock into place, creating a sense of progress even in stillness. Colour plays a vital role too: bright, energetic tones drawn from the world of facilitation signal clarity and creativity. The result is a bold but balanced identity, marrying strategic logic with human warmth in a way that feels both credible and playful."
+          ],
+          "details": [
+            {
+              "label": "WHAT WE DID",
+              "value": ["Copywriting", "Visual Identity", "Motion", "Brand Development"]
+            },
+            {
+              "label": "INDUSTRY",
+              "value": "Marketing & advertising"
+            },
+            {
+              "label": "LOCATION",
+              "value": "Alcester, UK"
+            },
+            {
+              "label": "COLLABORATORS",
+              "value": "Sayeed Islam, Motion"
+            }
+          ]
+        }
+      },
+      {
+        "widget_type": "ProjectImageGallery",
+        "data": {
+          "blocks": [
+            {
+              "layout": "full",
+              "images": ["https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2560&auto=format&fit=crop"]
+            },
+            {
+              "layout": "half",
+              "images": [
+                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop"
+              ]
+            },
+            {
+              "layout": "third",
+              "images": [
+                "https://images.unsplash.com/photo-1506097425191-7ad538b29cef?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "widget_type": "ProjectBanner",
+        "data": {
+          "title": "Selected projects",
+          "subtitle": "A collection of our best work across various industries and disciplines.",
+          "projects": [
+            {
+              "id": 1,
+              "title": "E-Commerce Platform",
+              "categories": [
+                "Web Development"
+              ],
+              "image": "https://example.com/images/proj1.jpg",
+              "link": "/work/e-commerce"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

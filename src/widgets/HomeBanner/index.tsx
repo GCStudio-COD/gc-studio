@@ -21,9 +21,9 @@ export default function HomeBanner({ title, subtitle, video, poster, data }: any
                 </div>
 
                 {/* Hero Graphic Area */}
-                <div className="w-full aspect-square sm:aspect-video md:aspect-[2.2/1] bg-[#c3e6ff] rounded-2xl sm:rounded-[32px] relative overflow-hidden flex items-center justify-center">
+                <div className="w-full aspect-square sm:aspect-video md:aspect-[2.2/1] bg-[#c3e6ff] rounded-[10px] relative overflow-hidden flex items-center justify-center">
                     {/* Video Container */}
-                    <div className="w-full h-full bg-[#404040] rounded-xl sm:rounded-2xl shadow-2xl relative overflow-hidden">
+                    <div className="w-full h-full bg-[#404040] shadow-2xl relative overflow-hidden">
                         <video
                             src={displayVideo}
                             autoPlay

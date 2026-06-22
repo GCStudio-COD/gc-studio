@@ -50,6 +50,90 @@
             "title": "The Future of Web Design"
           }
         ]
+      },
+      {
+        "widget_type": "CapabilitiesSection",
+        "title": "Our Capabilities",
+        "items": [
+          {
+            "title": "Strategy & Branding",
+            "description": "We help companies define their vision and build powerful brands.",
+            "image": "https://example.com/images/branding.jpg",
+            "tags": ["Brand Identity", "Market Research", "Positioning"]
+          }
+        ]
+      },
+      {
+        "widget_type": "CaseStudiesSection",
+        "title": "Selected Work",
+        "subtitle": "Discover how we've helped our clients achieve their goals.",
+        "caseStudies": [
+          {
+            "title": "E-Commerce Platform",
+            "category": "Web Development",
+            "image": "https://example.com/images/case1.jpg",
+            "link": "/work/e-commerce"
+          }
+        ]
+      },
+      {
+        "widget_type": "ProcessSection",
+        "title": "How we work",
+        "description": "Our proven methodology guarantees success.",
+        "stages": [
+          {
+            "id": 1,
+            "title": "Discovery",
+            "description": "We start by understanding your goals and audience.",
+            "services": ["Workshops", "Research", "Audits"]
+          }
+        ]
+      },
+      {
+        "widget_type": "TestimonialsSection",
+        "title": "Client Feedback",
+        "testimonials": [
+          {
+            "quote": "GC Studio completely transformed our online presence.",
+            "author": "Jane Doe",
+            "role": "CEO",
+            "company": "Tech Innovators"
+          }
+        ]
+      },
+      {
+        "widget_type": "FAQSection",
+        "title": "Frequently Asked Questions",
+        "description": "Everything you need to know about our services and process.",
+        "faqs": [
+          {
+            "question": "How long does a typical project take?",
+            "answer": "Most projects take between 4 to 8 weeks depending on complexity."
+          }
+        ]
+      },
+      {
+        "widget_type": "CTASection",
+        "title": "Ready to transform your brand?",
+        "buttonText": "Start a Project",
+        "buttonLink": "/contact",
+        "bgImage": "https://example.com/images/cta-bg.jpg"
+      },
+      {
+        "widget_type": "ContactSection",
+        "title": "Let's start \n a project.",
+        "description": "We're always looking for new challenges.",
+        "email": "hello@gcstudio.com",
+        "offices": [
+          {
+            "city": "New York",
+            "address": "100 Broadway\nNew York, NY 10005"
+          },
+          {
+            "city": "London",
+            "address": "140 Old Street\nLondon, EC1V 9BW"
+          }
+        ]
       }
     ]
   }

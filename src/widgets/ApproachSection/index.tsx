@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export interface ApproachSectionData {
     title: string;
-    intro_text: string;
+    description: string;
     link?: {
         text: string;
         url: string;
@@ -16,7 +16,7 @@ export interface ApproachSectionProps {
     data?: ApproachSectionData;
     heading?: string;
     title?: string;
-    intro_text?: string;
+    description?: string;
     link_text?: string;
     link_url?: string;
     clients?: any[];
@@ -30,12 +30,14 @@ const getMediaUrl = (media: any) => {
     return '';
 };
 
-export default function ApproachSection({ data, heading, title: directTitle, intro_text, link_text, link_url, clients: directClients }: ApproachSectionProps) {
+export default function ApproachSection({ data, heading, title: directTitle, description, link_text, link_url, clients: directClients }: ApproachSectionProps) {
     const title = heading || directTitle || data?.title;
-    const introText = intro_text || data?.intro_text;
+    const introText = description || data?.description;
     const linkText = link_text || data?.link?.text;
     const linkUrl = link_url || data?.link?.url;
     const clients = directClients || data?.clients || [];
+
+
 
     if (!clients || clients.length === 0) return null;
 
@@ -73,16 +75,16 @@ export default function ApproachSection({ data, heading, title: directTitle, int
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-3">
                     {clients.map((client: any, index: number) => {
                         const imageUrl = getMediaUrl(client.image);
-                        
+
                         return (
                             <div
                                 key={index}
                                 className="w-full aspect-square bg-[#1c1c1c] rounded-xl md:rounded-2xl flex items-center justify-center p-4 transition-transform duration-500 hover:scale-[1.02] cursor-pointer group relative overflow-hidden"
                             >
                                 {imageUrl ? (
-                                    <Image 
-                                        src={imageUrl} 
-                                        alt={client.name || "Client logo"} 
+                                    <Image
+                                        src={imageUrl}
+                                        alt={client.name || "Client logo"}
                                         fill
                                         className="object-contain p-6 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                                         unoptimized

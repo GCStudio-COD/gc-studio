@@ -15,7 +15,24 @@
   box-sizing: border-box;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
 body {
   color: var(--foreground);
   background-color: #1a1a1a;
+}
+
+@keyframes bgGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-gradient-animate {
+  background-size: 200% 200% !important;
+  animation: bgGradient 4s ease infinite;
 }

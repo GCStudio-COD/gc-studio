@@ -9,13 +9,19 @@ export default function FloatingNav({ data }: { data?: any[] }) {
 
     if (!data || data.length === 0) return null;
 
+    console.log(data, "aaad");
+
+
     return (
         <div className="fixed bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-50 w-max max-w-[95vw] pointer-events-auto">
             <nav className="flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 rounded-full bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.08)] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {data.map((item: any, i: number) => {
                     const name = item.title || item.label || item.name || "Link";
-                    const href = item.url || item.href || item.link || "#";
-                    
+                    let href = item.slug || item.url || item.href || item.link || "#";
+                    if (!href.startsWith('/') && !href.startsWith('http') && !href.startsWith('#')) {
+                        href = `/${href}`;
+                    }
+
                     const isHome = name.toLowerCase() === "home";
                     const icon = isHome ? (
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[18px] h-[18px]">
@@ -24,10 +30,10 @@ export default function FloatingNav({ data }: { data?: any[] }) {
                         </svg>
                     ) : null;
 
-                    const isActive = href === "/" 
-                        ? pathname === href 
+                    const isActive = href === "/"
+                        ? pathname === href
                         : pathname?.startsWith(href);
-                    
+
                     return (
                         <Link
                             key={i}
@@ -35,14 +41,13 @@ export default function FloatingNav({ data }: { data?: any[] }) {
                             className={`group relative flex items-center justify-center px-4 sm:px-5 py-2 rounded-full text-[13px] sm:text-sm font-medium tracking-wide transition-colors duration-300 whitespace-nowrap text-black`}
                         >
                             {/* Hover/Active Background Indicator */}
-                            <span 
-                                className={`absolute inset-0 rounded-full -z-10 transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                                    isActive 
-                                    ? "bg-black/[0.06] scale-100 opacity-100" 
-                                    : "bg-black/[0.03] scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100"
-                                }`}
+                            <span
+                                className={`absolute inset-0 rounded-full -z-10 transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
+                                        ? "bg-black/[0.06] scale-100 opacity-100"
+                                        : "bg-black/[0.03] scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100"
+                                    }`}
                             />
-                            
+
                             <span className="relative z-10 flex items-center">
                                 {icon ? icon : name}
                             </span>
