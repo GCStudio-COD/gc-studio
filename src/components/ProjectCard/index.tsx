@@ -35,9 +35,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     const [isLoaded, setIsLoaded] = useState(false);
 
     return (
-        <Link href={project?.link || "#"} className="flex flex-col group cursor-pointer relative">
+        <Link href={`/projects/${project?.slug}`} className="flex flex-col group cursor-pointer relative">
             {/* Card Media */}
-            <div 
+            <div
                 className="w-full aspect-[3/2] lg:aspect-[4/3] rounded-[10px] overflow-hidden relative mb-4"
                 data-cursor="VIEW"
             >
