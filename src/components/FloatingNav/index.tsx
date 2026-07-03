@@ -13,7 +13,7 @@ export default function FloatingNav({ data }: { data?: any[] }) {
 
     return (
         <div className="fixed bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-50 w-max max-w-[95vw] pointer-events-auto">
-            <nav className="flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 rounded-full bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.08)] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <nav className="flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 rounded-full bg-white/20 backdrop-blur-2xl saturate-150 border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {data.map((item: any, i: number) => {
                     const name = item.title || item.label || item.name || "Link";
                     let href = item.slug || item.url || item.href || item.link || "#";

@@ -54,12 +54,12 @@ export default function Header() {
     };
 
     return (
-        <header className="w-full h-20 md:h-20 absolute top-0 left-0 z-50 mix-blend-difference text-white">
+        <header className="w-full h-20 md:h-20 absolute top-0 left-0 z-50 pointer-events-none">
             {/* Container wrapper */}
             <div className="container mx-auto h-full relative z-10">
                 <div className="flex items-center justify-between h-full">
                     {/* Left side: Logo */}
-                    <div className="flex items-center">
+                    <div className="flex items-center pointer-events-auto text-black">
                         <Link href="/">
                             <svg
                                 width="72"
@@ -88,7 +88,7 @@ export default function Header() {
 
                     {/* Right side: Location & Time (Animated) */}
                     {zones.length > 0 && (
-                        <div className="relative flex items-center justify-end w-[240px] md:w-[280px] h-12 overflow-hidden">
+                        <div className="relative flex items-center justify-end w-[240px] md:w-[280px] h-12 overflow-hidden pointer-events-auto">
                             {zones.map((zone, idx) => (
                                 <div
                                     key={`${zone.name}-${idx}`}
@@ -97,11 +97,11 @@ export default function Header() {
                                         : "opacity-0 pointer-events-none"
                                         }`}
                                 >
-                                    <span className="text-[9px] md:text-[11px] font-normal tracking-[0.15em] md:tracking-[0.2em] uppercase whitespace-nowrap">
+                                    <span className="text-[9px] md:text-[11px] font-normal tracking-[0.15em] md:tracking-[0.2em] uppercase whitespace-nowrap text-black">
                                         {zone.name}
                                     </span>
-                                    <span className="w-1.5 h-1.5 rounded-full bg-teal-600"></span>
-                                    <span className="text-[9px] md:text-[11px] font-normal tracking-[0.15em] md:tracking-[0.2em] uppercase whitespace-nowrap">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-[#00a884]"></span>
+                                    <span className="text-[9px] md:text-[11px] font-normal tracking-[0.15em] md:tracking-[0.2em] uppercase whitespace-nowrap text-black">
                                         {formatTime(zone.tz, zone.prefix)}
                                     </span>
                                 </div>

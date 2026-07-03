@@ -51,7 +51,7 @@ export default function Footer({ data }: FooterProps) {
 
                     {/* Left Column */}
                     <div className="w-full md:w-1/2 flex flex-col gap-8 md:gap-12 z-10">
-                        <Link href={ctaUrl} className="w-max flex items-center gap-3 bg-[#2a2a2a] hover:bg-[#333] transition-colors rounded-full px-5 py-3 border border-white/5">
+                        <Link href={`tel:${ctaUrl}`} className="w-max flex items-center gap-3 bg-[#2a2a2a] hover:bg-[#333] transition-colors rounded-full px-5 py-3 border border-white/5">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#00a884]"></span>
                             <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-[#e5e5e5]">{ctaText}</span>
                         </Link>

@@ -89,7 +89,7 @@ export default function ProjectBanner({ title, subtitle, projects, categories, d
 
                     {/* Tab Content */}
                     {filteredProjects.length > 0 ? (
-                        <div className="pt-8 w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                        <div className="pt-8 w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:gap-y-[100px]">
                             {filteredProjects.map((proj: any, index: number) => (
                                 <ProjectCard key={proj.id || index} project={proj} />
                             ))}

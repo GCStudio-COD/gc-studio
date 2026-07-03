@@ -7,15 +7,15 @@ export interface CTASectionProps {
     title?: string;
     description?: string;
     buttonText?: string;
-    buttonUrl?: string;
+    buttonLink?: string;
     bgImage?: string;
 }
 
-export default function CTASection({ data, title: directTitle, description: directDesc, buttonText: directButtonText, buttonUrl: directButtonUrl, bgImage: directBgImage }: CTASectionProps) {
+export default function CTASection({ data, title: directTitle, description: directDesc, buttonText: directButtonText, buttonLink: directButtonLink, bgImage: directBgImage }: CTASectionProps) {
     const title = directTitle || data?.title;
     const description = directDesc || data?.description || data?.subtitle;
     const buttonText = directButtonText || data?.buttonText;
-    const buttonUrl = directButtonUrl || data?.buttonUrl;
+    const buttonLink = directButtonLink || data?.buttonLink;
     const bgImage = directBgImage || data?.bgImage;
 
     if (!title && !buttonText && !bgImage) return null;
@@ -57,7 +57,7 @@ export default function CTASection({ data, title: directTitle, description: dire
                         
                         {buttonText && (
                             <Link 
-                                href={buttonUrl || "#"}
+                                href={buttonLink || "#"}
                                 className="group relative inline-flex items-center justify-center px-8 md:px-12 py-3 md:py-4 bg-white text-zinc-950 rounded-full overflow-hidden transition-all hover:scale-105 shadow-2xl"
                             >
                                 <span className="relative z-10 text-sm md:text-base font-bold uppercase tracking-widest transition-colors group-hover:text-white">
