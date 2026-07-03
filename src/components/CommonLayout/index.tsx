@@ -17,7 +17,7 @@ interface CommonLayoutProps {
 
 const CommonLayout: React.FC<CommonLayoutProps> = ({ children, headerData, footerData }) => {
     const pathname = usePathname();
-    const isProjectDetail = pathname?.startsWith("/project/") && pathname !== "/project";
+    const isProjectDetail = pathname?.startsWith("/projects/") && pathname !== "/projects";
     const isBlogDetail = pathname?.startsWith("/blog/") && pathname !== "/blog";
     const isDetailPage = isProjectDetail || isBlogDetail;
 
