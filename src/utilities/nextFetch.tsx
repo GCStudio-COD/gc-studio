@@ -13,7 +13,10 @@ const nextFetch = async <T = any>(
   // Normalize slashes in URL
   const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
   const cleanSlug = slug.startsWith("/") ? slug : `/${slug}`;
-  const url = `${baseUrl}${cleanSlug}`;
+  
+  // Add a cache-busting timestamp to bypass Hostinger/LiteSpeed API cache
+  const separator = cleanSlug.includes('?') ? '&' : '?';
+  const url = `${baseUrl}${cleanSlug}${separator}t=${Date.now()}`;
 
   try {
     const res = await fetch(url, fetchOptions);

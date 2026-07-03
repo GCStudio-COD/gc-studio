@@ -21,13 +21,37 @@ export interface FeaturedProjectsProps {
     featured_projects?: any[];
 }
 
-export default function FeaturedProjects({ data, heading, title: directTitle, link_text, link_url, projects: directProjects, featured_projects }: FeaturedProjectsProps) {
+import nextFetch from "@/utilities/nextFetch";
+
+export default async function FeaturedProjects({ data, heading, title: directTitle, link_text, link_url, projects: directProjects, featured_projects }: FeaturedProjectsProps) {
     const title = heading || directTitle || data?.title;
     const linkText = link_text || data?.link?.text;
     const linkUrl = link_url || data?.link?.url;
-    const projects = directProjects || featured_projects || data?.featured_projects || [];
+    const initialProjects = directProjects || featured_projects || data?.featured_projects || [];
 
-    if (!projects || projects.length === 0) return null;
+    if (!initialProjects || initialProjects.length === 0) return null;
+
+    // Workaround: If the API doesn't provide an image but gives a link, fetch it from the project's own API endpoint
+    const projects = await Promise.all(initialProjects.map(async (project: any) => {
+        if (!project.image && project.link) {
+            try {
+                const slug = project.link.replace(/^\//, '');
+                const projectData = await nextFetch(`api/project/${slug}`);
+                if (projectData?.data?.widgets) {
+                    const bannerWidget = projectData.data.widgets.find((w: any) => w.widget_type === 'ProjectDetailBanner');
+                    if (bannerWidget?.data?.mediaUrl) {
+                        return { ...project, image: bannerWidget.data.mediaUrl };
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to fetch image for project:", project.link);
+            }
+        }
+        return project;
+    }));
+
+    console.log(projects, "qqq");
+
 
     return (
         <section className="w-full py-16 md:py-24">
