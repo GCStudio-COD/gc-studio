@@ -35,7 +35,10 @@ export default async function FeaturedProjects({ data, heading, title: directTit
     const projects = await Promise.all(initialProjects.map(async (project: any) => {
         if (!project.image && project.link) {
             try {
-                const slug = project.link.replace(/^\//, '');
+                // Extract slug whether it's /slug or /project/slug
+                const slugParts = project.link.split('/').filter(Boolean);
+                const slug = slugParts[slugParts.length - 1];
+                
                 const projectData = await nextFetch(`api/project/${slug}`);
                 if (projectData?.data?.widgets) {
                     const bannerWidget = projectData.data.widgets.find((w: any) => w.widget_type === 'ProjectDetailBanner');
