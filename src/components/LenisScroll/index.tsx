@@ -1,6 +1,22 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { ReactLenis, useLenis } from "lenis/react";
+
+const ScrollReset = () => {
+  const pathname = usePathname();
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (lenis) {
+      lenis.resize();
+      lenis.scrollTo(0, { immediate: true });
+    }
+  }, [pathname, lenis]);
+
+  return null;
+};
 
 interface LenisScrollProps {
   children: React.ReactNode;
@@ -20,10 +36,8 @@ const LenisScroll: React.FC<LenisScrollProps> = ({ children }) => {
   };
 
   return (
-    <ReactLenis
-      root
-      options={options}
-    >
+    <ReactLenis root options={options}>
+      <ScrollReset />
       {children}
     </ReactLenis>
   );
