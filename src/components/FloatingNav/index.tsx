@@ -9,7 +9,6 @@ export default function FloatingNav({ data }: { data?: any[] }) {
 
     if (!data || data.length === 0) return null;
 
-    console.log(data, "aaad");
 
 
     return (

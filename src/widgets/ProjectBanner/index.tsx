@@ -7,7 +7,6 @@ export default function ProjectBanner({ title, subtitle, projects, categories, d
     const displayTitle = title || data?.title;
     const displaySubtitle = subtitle || data?.subtitle;
 
-    console.log(data, "aaw");
 
 
     const displayProjects = projects || data?.projects || [];

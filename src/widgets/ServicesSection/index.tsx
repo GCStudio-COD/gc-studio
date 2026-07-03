@@ -46,7 +46,6 @@ export default function ServicesSection({ data, heading, title: directTitle, des
     const linkUrl = link_url || data?.link?.url;
     const services = directServices || data?.services || [];
 
-    console.log(data, "aa");
 
 
     if (!services || services.length === 0) return null;

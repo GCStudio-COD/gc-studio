@@ -4,8 +4,11 @@ export default function HomeBanner({ title, subtitle, video, poster, data }: any
     const displayTitle = title || data?.title;
     const displaySubtitle = subtitle || data?.subtitle;
     const displayVideo = video || data?.video;
+    const displayPoster = poster || data?.poster;
 
     if (!displayTitle && !displayVideo) return null;
+
+
 
     return (
         <section className="w-full pt-10 md:pt-[15%] pb-12">
@@ -26,6 +29,7 @@ export default function HomeBanner({ title, subtitle, video, poster, data }: any
                     <div className="w-full h-full bg-[#404040] shadow-2xl relative overflow-hidden">
                         <video
                             src={displayVideo}
+                            poster={displayPoster}
                             autoPlay
                             loop
                             muted

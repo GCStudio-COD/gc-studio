@@ -11,7 +11,6 @@ export interface CaseStudiesSectionProps {
 export default function CaseStudiesSection({ data, title: directTitle, description: directDesc, caseStudies: directCaseStudies }: CaseStudiesSectionProps) {
     const sectionTitle = directTitle || data?.title || "Impact";
     const sectionDescription = directDesc || data?.description || data?.subtitle || "A selection of our recent work and the results we've achieved.";
-    console.log(data, "aaqa");
 
     const caseStudies = directCaseStudies || data?.caseStudies || [];
 

@@ -23,7 +23,6 @@ export default async function ProjectDetailPage({ params }: { params: any }) {
   const resolvedParams = await params;
   const data = await nextFetch(`api/project/${resolvedParams.slug}`);
 
-  console.log(data?.data?.widgets, "detail");
 
 
 
