@@ -55,7 +55,7 @@ export default function ProjectDetailBanner({ data, title: directTitle, mediaUrl
                         <video
                             ref={videoRef}
                             src={mediaUrl}
-                            className="object-cover w-full h-full opacity-90"
+                            className="object-cover w-full h-full"
                             autoPlay
                             muted
                             loop
@@ -67,7 +67,7 @@ export default function ProjectDetailBanner({ data, title: directTitle, mediaUrl
                                 src={mediaUrl}
                                 alt={title || "Project Banner"}
                                 fill
-                                className="object-cover opacity-80 scale-105 animate-[slowZoom_20s_ease-out_forwards]"
+                                className="object-cover scale-105 animate-[slowZoom_20s_ease-out_forwards]"
                                 priority
                                 unoptimized
                             />
@@ -77,8 +77,6 @@ export default function ProjectDetailBanner({ data, title: directTitle, mediaUrl
                                     100% { transform: scale(1.05); }
                                 }
                             `}} />
-                            {/* Gradient overlay for text readability */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40" />
                         </>
                     )
                 )}
