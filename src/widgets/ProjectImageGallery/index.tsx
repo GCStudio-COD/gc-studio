@@ -35,16 +35,23 @@ export default function ProjectImageGallery({ data, blocks: directBlocks }: Proj
     if (!rawBlocks || rawBlocks.length === 0) return null;
 
     return (
-        <section className="relative z-10 w-full bg-[#f9f6f4]">
+        <section className="relative z-10 w-full bg-[#f9f6f4] py-3">
             {/* The wrapper can have a standard max-width or full-width depending on preference. A slight padding looks premium. */}
             <div className="container mx-auto px-4 md:px-8 py-8 md:py-16 flex flex-col gap-2 md:gap-4">
                 {rawBlocks.map((block: any, idx: number) => {
                     const images = Array.isArray(block.images) ? block.images : [];
 
-                    // Determine grid columns based on layout type
+                    // Determine grid columns and aspect ratio based on layout type
                     let gridClass = "grid-cols-1"; // full
-                    if (block.layout === "half") gridClass = "grid-cols-1 md:grid-cols-2";
-                    if (block.layout === "third") gridClass = "grid-cols-1 md:grid-cols-3";
+                    let aspectClass = "aspect-[16/10] md:aspect-[2/1]"; // full
+
+                    if (block.layout === "half") {
+                        gridClass = "grid-cols-1 md:grid-cols-2";
+                        aspectClass = "aspect-square";
+                    }
+                    if (block.layout === "third") {
+                        gridClass = "grid-cols-1 md:grid-cols-3";
+                    }
 
                     return (
                         <div key={idx} className={`grid ${gridClass} gap-2 md:gap-4`}>
@@ -54,7 +61,7 @@ export default function ProjectImageGallery({ data, blocks: directBlocks }: Proj
                                 if (!url) return null;
 
                                 return (
-                                    <div key={imgIdx} className="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-[8px] md:rounded-[12px] bg-[#222]">
+                                    <div key={imgIdx} className={`relative w-full ${aspectClass} overflow-hidden rounded-[8px] md:rounded-[12px] bg-[#222]`}>
                                         {type === 'video' ? (
                                             <video
                                                 src={url}

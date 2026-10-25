@@ -17,7 +17,9 @@ import ExpertiseSection from "@/widgets/ExpertiseSection";
 import BenefitsSection from "@/widgets/BenefitsSection";
 import ProjectDetailBanner from "@/widgets/ProjectDetailBanner";
 import ProjectDetailContent from "@/widgets/ProjectDetailContent";
+import ProjectDescription from "@/widgets/ProjectDescription";
 import ProjectImageGallery from "@/widgets/ProjectImageGallery";
+import ProjectScrollGallery from "@/widgets/ProjectScrollGallery";
 import BlogDetailBanner from "@/widgets/BlogDetailBanner";
 import BlogDetailContent from "@/widgets/BlogDetailContent";
 import BlogSection from "@/widgets/BlogSection";
@@ -49,7 +51,10 @@ const setComponent = (widget: WidgetProps): React.ComponentType<any> => {
     BenefitsSection: BenefitsSection,
     ProjectDetailBanner: ProjectDetailBanner,
     ProjectDetailContent: ProjectDetailContent,
+    ProjectDescription: ProjectDescription,
+    ProjectDetailDescription: ProjectDescription, // Also alias for flexibility
     ProjectImageGallery: ProjectImageGallery,
+    ProjectScrollGallery: ProjectScrollGallery,
     BlogDetailBanner: BlogDetailBanner,
     BlogDetailContent: BlogDetailContent,
     CaseStudiesSection: CaseStudiesSection,

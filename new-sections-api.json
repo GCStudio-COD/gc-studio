@@ -242,6 +242,61 @@
         }
       },
       {
+        "widget_type": "ProjectScrollGallery",
+        "data": {
+          "tag": "Visual Archive",
+          "title": "Explorations & Artifacts",
+          "subtitle": "A visual journey behind the work.",
+          "description": "Selected design iterations, typography studies, and production prototypes developed throughout the project lifecycle.",
+          "items": [
+            {
+              "category": "Concept & Direction",
+              "title": "Initial Sketches & Typography Study",
+              "caption": "Explorations into letterform anatomy and expressive ligature systems.",
+              "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop"
+            },
+            {
+              "category": "Color & Materiality",
+              "title": "Color Palette & Textures",
+              "caption": "Developing a tactile physical palette inspired by natural pigments and craft papers.",
+              "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1600&auto=format&fit=crop"
+            },
+            {
+              "category": "Digital System",
+              "title": "Interface Architecture & Motion",
+              "caption": "Interactive prototypes defining fluid transitions and responsive spatial hierarchy.",
+              "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            },
+            {
+              "category": "Production",
+              "title": "Editorial Print & Packaging",
+              "caption": "Custom embossing, hot foil stamping, and sustainable paper stock selection.",
+              "image": "https://images.unsplash.com/photo-1506097425191-7ad538b29cef?q=80&w=1600&auto=format&fit=crop"
+            }
+          ]
+        }
+      },
+      {
+        "widget_type": "ProjectDescription",
+        "data": {
+          "tag": "Design Strategy",
+          "title": "Crafting a resilient brand architecture",
+          "subtitle": "Balancing heritage with dynamic digital experiences.",
+          "layout": "split",
+          "description": [
+            "We initiated the partnership by leading discovery sessions across executive leadership and core development teams. The goal was to identify core frictions in user adoption and distill their technological ambition into a distinctive visual and verbal identity.",
+            "The resulting design system provides a clear narrative thread across every medium, establishing confidence from first touchpoint to enterprise implementation."
+          ],
+          "listTitle": "Core Deliverables & Highlights",
+          "list": [
+            "Complete brand identity and generative pattern guidelines",
+            "Custom typographic system designed for high legibility across interfaces",
+            "Multi-platform design token architecture and Figma component library",
+            "Art direction and photographic guidelines for global marketing campaigns"
+          ]
+        }
+      },
+      {
         "widget_type": "ProjectBanner",
         "data": {
           "title": "Selected projects",

@@ -16,7 +16,7 @@ export interface ProjectDetailContentProps {
 export default function ProjectDetailContent({ data, headingText1: directH1, headingText2: directH2, description: directDesc, details: directDetails }: ProjectDetailContentProps) {
     const headingText1 = directH1 || data?.headingText1;
     const headingText2 = directH2 || data?.headingText2;
-    
+
     const description = directDesc || data?.description || [];
 
     const details = directDetails || data?.details || [];
@@ -27,7 +27,7 @@ export default function ProjectDetailContent({ data, headingText1: directH1, hea
         <section className="relative z-10 w-full py-16 md:py-24 border-t border-zinc-200 bg-[#f9f6f4]">
             <div className="container mx-auto px-4 md:px-8">
                 {/* Heading Area */}
-                <div className="max-w-[95%] md:max-w-[85%] mb-20 md:mb-32">
+                <div className="max-w-[95%] md:max-w-[85%] mb-20 md:mb-[50px]">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.3] md:leading-[1.15] tracking-tight text-zinc-900">
                         {headingText1 && (
                             <span className="font-medium mr-2 md:mr-3">
@@ -43,7 +43,7 @@ export default function ProjectDetailContent({ data, headingText1: directH1, hea
                 </div>
 
                 {/* Content Grid */}
-                <div className="flex flex-col lg:flex-row gap-[100px] lg:gap-[200px]">
+                <div className="flex flex-col lg:flex-row gap-[100px] lg:gap-[159px]">
 
                     {/* Left Column: Description */}
                     <div className="w-full lg:w-[55%]">
@@ -52,7 +52,7 @@ export default function ProjectDetailContent({ data, headingText1: directH1, hea
                         </h3>
                         <div className="flex flex-col gap-6 md:gap-8">
                             {description.map((paragraph: string, idx: number) => (
-                                <p key={idx} className="text-base md:text-[19px] font-serif font-light text-zinc-600 leading-[1.7]">
+                                <p key={idx} className="text-base md:text-[20px] font-serif font-light text-zinc-600 leading-[1.7]">
                                     {paragraph}
                                 </p>
                             ))}
